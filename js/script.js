@@ -2,30 +2,53 @@ var wikiURL = 'https://en.wikipedia.org/w/api.php';
 
 var wikiList = document.getElementById("wikiArtList");
 
+var keyword = 'fluff';
+
 $.ajax({
     url: wikiURL,
     dataType: 'jsonp',
-    data: {action: 'opensearch', search: 'butterfly', format: 'json', limit: 2 },
-    success: function(response){
-        //console.log(response);
-        // If results are found
-        if(response[1].length > 0) {
-            var title = response[1]; // Titles of Results
-            var description = response[2];  // Descriptions of Results
-            var link = response[3]; // Links to Results
+    data: { action: 'opensearch', search: keyword, format: 'json', limit: 2 },
+    success: function (response) {
+        console.log(response);
+
+
+        if (response[1].length > 0) {
+            // Titles of Results
+            var title = response[1];
+            // Descriptions of Results
+            var description = response[2];
+            // Links to Results
+            var link = response[3];
+
+            parseResult(title, description, link);
+
+        } else {
+            showError(keyword)
         }
-                      
-        for (var i = 0; i < title.length; i++){
-                        
-            var node = document.createElement("LI");                 // Create a <li> node
-            var textnode = document.createTextNode(title[i]);
-            var wikiLink = document.createElement("a");
-            wikiLink.innerHTML = href="" + link[i]
-            node.appendChild(textnode);
-            node.appendChild(wikiLink);
-                // Append the text to <li>
-            wikiList.appendChild(node);
-        }
+
+
+    },
+    error: function () {
+        alert("Error retrieving search results, please refresh the page.");
     }
-                
+
 });
+
+function parseResult(title, description, link) {
+    for (var i = 0; i < title.length; i++) {
+
+        var node = document.createElement("li");   // Create a <li> node
+        var textnode = document.createElement("p"); // Create <p> element
+        textnode.innerHTML = description[i]; // Add description text 
+        var linknode = document.createElement("a"); // Create link element
+        linknode.setAttribute('href', link[i]); // Add hyperlink
+        linknode.innerHTML = title[i]; // Add title 
+        node.appendChild(linknode); // Append the link to <li>
+        node.appendChild(textnode); // Append the description to the <li>
+        wikiList.appendChild(node);  // Append the li to the list
+    }
+}
+
+function showError(keyword) {
+    alert("Error retrieving results for " + keyword + ", please refresh the page.");
+}
