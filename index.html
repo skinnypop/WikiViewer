@@ -2,52 +2,47 @@
 
 <head>
     <title>Wikipedia Viewer</title>
-    <link rel="stylesheet" href="style.css" />
+
     <link href="https://fonts.googleapis.com/css?family=Josefin+Slab|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
     <div class="hero">
-        
-
     </div>
+
     <div class="title">
         <h1>Wikipedia Viewer</h1>
     </div>
+    
+    <div class="hero-image">
+        <a class = "img-link" href="https://commons.wikimedia.org/w/index.php?curid=8248768">Photo by Toby Hudson</a>,
+        <a class="img-link" href="http://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0"> CC BY-SA 3.0</a>
+        
+    </div>
     <div class="container">
-        <div class="intro">
-            <div class="intro-body">
-                
+        <div class="row">
+            
+            <div class="col-sm-4" "random"><a href='https://en.wikipedia.org/wiki/Special:Random' target="_blank"><button class="random btn btn-warning input-lg" type="button">Random Article</button></a>
+            </div>
+
+            <div class="col-sm-8" "search">
+                <input type="text" name="search" placeholder="Search Wikipedia..">
             </div>
 
         </div>
-        <ul class="container-box">
-            <li class="random-section-li">
-                <div class="choice">
-                    <a href='https://en.wikipedia.org/wiki/Special:Random' target="_blank"><img class="bio-section-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Antu_edit-image-face-recognize.svg/512px-Antu_edit-image-face-recognize.svg.png"/></a>
-                    
+    </div>
 
-                </div>
-            </li>
-            <li class="search-section-li">
-                <div class="choice">
-                    <input type="text" name="search" placeholder="Search..">
-                    
-                </div>
-            </li>
-            <li>
-                <ul id="wikiArtList">
-                    <li>First</li>
-                    <li>Second</li>
-                </ul>
-            </li>
-  
-</ul>
-            
-<script src="js/libs/jquery.min.js"></script>
-<script src="js/script.js"></script>                    
+    <div class="result">
+        <ul id="wikiArtList">
+        </ul>
+    </div>
+
+
+
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
-<footer>
-    By <a href="//commons.wikimedia.org/wiki/User:99of9" title="User:99of9">Toby Hudson</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="http://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=8248768">Link</a>
-</footer>
