@@ -2,9 +2,14 @@ var wikiURL = 'https://en.wikipedia.org/w/api.php';
 
 var wikiList = document.getElementById("wikiArtList");
 
+document.getElementById("search").addEventListener("search", getData);
+
 var keyword = 'fluff';
 
-$.ajax({
+function getData(){
+    keyword = document.getElementById("search").value;
+    console.log(keyword);
+    $.ajax({
     url: wikiURL,
     dataType: 'jsonp',
     data: { action: 'opensearch', search: keyword, format: 'json', limit: 2 },
@@ -33,6 +38,7 @@ $.ajax({
     }
 
 });
+}
 
 function parseResult(title, description, link) {
     for (var i = 0; i < title.length; i++) {
