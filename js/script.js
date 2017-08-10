@@ -70,6 +70,7 @@ function showError(keyword) {
 }
 
 function clearData(){
+    console.log("clearData");
     while (wikiList.hasChildNodes()) {   
     wikiList.removeChild(wikiList.firstChild);
 }   
