@@ -8,6 +8,7 @@ var search = $('.search');
 
 search.keyup(function(){
     console.log("keyup");
+    clearData():
     getData();
 });
 
@@ -66,4 +67,10 @@ function parseResult(title, description, link) {
 
 function showError(keyword) {
     alert("Error retrieving results for " + keyword + ", please refresh the page.");
+}
+
+function clearData(){
+    while (wikiList.hasChildNodes()) {   
+    wikiList.removeChild(wikiList.firstChild);
+}   
 }
