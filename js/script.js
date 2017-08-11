@@ -21,7 +21,7 @@ function getData(){
     $.ajax({
     url: wikiURL,
     dataType: 'jsonp',
-    data: { action: 'opensearch', search: keyword, format: 'json', limit: 2 },
+    data: { action: 'opensearch', search: keyword, format: 'json', limit: 10 },
     success: function (response) {
         console.log(response);
 
