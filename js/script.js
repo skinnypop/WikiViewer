@@ -8,6 +8,8 @@ var search = $('.search');
 
 search.keyup(function(){
     console.log("keyup");
+    clearData();
+    console.log("clearData");
     getData();
 });
 
@@ -19,7 +21,7 @@ function getData(){
     $.ajax({
     url: wikiURL,
     dataType: 'jsonp',
-    data: { action: 'opensearch', search: keyword, format: 'json', limit: 2 },
+    data: { action: 'opensearch', search: keyword, format: 'json', limit: 10 },
     success: function (response) {
         console.log(response);
 
@@ -66,4 +68,11 @@ function parseResult(title, description, link) {
 
 function showError(keyword) {
     alert("Error retrieving results for " + keyword + ", please refresh the page.");
+}
+
+function clearData(){
+    console.log("clearData");
+    while (wikiList.hasChildNodes()) {   
+    wikiList.removeChild(wikiList.firstChild);
+}   
 }
