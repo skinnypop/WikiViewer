@@ -8,7 +8,7 @@ var search = $('.search');
 
 search.keyup(function(){
     console.log("keyup");
-    clearData():
+    clearData();
     getData();
 });
 
